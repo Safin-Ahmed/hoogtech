@@ -8,7 +8,7 @@ import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
   return (
-    <div className="App">
+    <div>
 
       <Router>
         <Switch>

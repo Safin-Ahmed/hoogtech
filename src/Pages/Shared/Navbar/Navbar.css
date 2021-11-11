@@ -1,0 +1,8 @@
+.navbar-mainmenu button, .navbar-user button {
+    margin-left: 20px;
+}
+.navbar-user button {
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+}
