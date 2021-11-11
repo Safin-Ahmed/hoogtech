@@ -5,11 +5,12 @@ import Home from './Pages/Home/Home/Home';
 import Explore from './Pages/Explore/Explore/Explore';
 import Purchase from './Pages/Purchase/Purchase/Purchase';
 import NotFound from './Pages/NotFound/NotFound';
+import Navbar from './Pages/Shared/Navbar/Navbar';
+import Footer from './Pages/Shared/Footer/Footer';
 
 function App() {
   return (
     <div>
-
       <Router>
         <Switch>
           <Route exact path="/">
