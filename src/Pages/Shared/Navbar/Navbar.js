@@ -26,7 +26,7 @@ const Navbar = () => {
                         <Link to="/dashboard"><button>Dashboard</button></Link>
                     </div>
                     {/* Navbar Secondary Menu goes here */}
-                    <div className="hidden md:block navbar-user w-1/3">
+                    <div className="hidden md:block navbar-user w-1/6">
                         <Link to="/login"><button><BiUser></BiUser></button></Link>
                         <Link to="/explore"><button><BiSearch></BiSearch></button></Link>
                         <Link to="/cart"><button><BiCart></BiCart></button></Link>
