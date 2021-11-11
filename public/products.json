@@ -1,0 +1,72 @@
+[
+    {
+        "imgUrl": "http://demoapus-wp.com/goral/wp-content/uploads/2016/12/010-01689-03_forerunner35_hr_b-330x330.jpg",
+        "productName": "Forerunner 35",
+        "desc": "Forerunner 35 is a smartwatch to change the game. It provides multifunctionality to your everyday life. It will be the best investment for real players",
+        "price": 200,
+        "id": 1
+    },
+    {
+        "imgUrl": "http://demoapus-wp.com/goral/wp-content/uploads/2016/10/010-03717-31_ampliada1-330x330.jpg",
+        "productName": "Forerunner 735 XT",
+        "desc": "Forerunner 735 XT is a premium smartwatch to change the game. It provides multifunctionality to your everyday life. It will be the best investment for average players",
+        "price": 120,
+        "id": 2
+    },
+    {
+        "imgUrl": "http://demoapus-wp.com/goral/wp-content/uploads/2016/11/1413740116000_1085752-330x330.jpg",
+        "productName": "Forerunner 930 XT",
+        "desc": "Forerunner 930 XT is a premium smartwatch to change the game. It provides multifunctionality to your everyday life. It will be the best investment for premium players",
+        "price": 150,
+        "id": 3
+    },
+    {
+        "imgUrl": "http://demoapus-wp.com/goral/wp-content/uploads/2016/11/1413740732000_IMG_430431-330x330.jpg",
+        "productName": "Forerunner 920 XT",
+        "desc": "Forerunner 920 XT is a smartwatch that can help you in your task. It provides multifunctionality to your everyday life. It will be the best investment for real players",
+        "price": 220,
+        "id": 4
+    },
+    {
+        "imgUrl": "http://demoapus-wp.com/goral/wp-content/uploads/2016/11/1463152923000_IMG_629092-330x330.jpg",
+        "productName": "Forerunner 630",
+        "desc": "Forerunner 630 is a smartwatch that can make your life easy. It provides multifunctionality such as pressure meter, oxygen meter and lots more to your everyday life. It will be the best investment for real players",
+        "price": 120,
+        "id": 5
+    },
+    {
+        "imgUrl": "http://demoapus-wp.com/goral/wp-content/uploads/2016/11/1439307237000_IMG_522060-330x330.jpg",
+        "productName": "Forerunner 320",
+        "desc": "Forerunner 320 is a legendary smartwatch to change the game for youngstars. It provides multifunctionality to your everyday life. It will be the best investment for real players",
+        "price": 100,
+        "id": 6
+    },
+    {
+        "imgUrl": "http://demoapus-wp.com/goral/wp-content/uploads/2016/11/1439307237000_IMG_522078-330x330.jpg",
+        "productName": "Mi AmazFit BUP",
+        "desc": "Mi AmazFit BUP is our most affordable and efficient smart watch in our collection. You will get everything is most affordable price range.",
+        "price": 50,
+        "id": 7
+    },
+    {
+        "imgUrl": "http://demoapus-wp.com/goral/wp-content/uploads/2016/11/1439305299000_IMG_522026-330x330.jpg",
+        "productName": "Forerunner 345",
+        "desc": "Forerunner 345 is a smartwatch to change the game of your lovely queen. It provides multifunctionality to your everyday life. It will be the best investment for real players",
+        "price": 100,
+        "id": 8
+    },
+    {
+        "imgUrl": "http://demoapus-wp.com/goral/wp-content/uploads/2016/11/010-11251-75_ampliada-330x330.jpg",
+        "productName": "Premium Watch Bands (Blue)",
+        "desc": "Premium Watch Bands made only for our smartwatches. It gives premium look to your watch and fully customizeable. You can use any of our bands with your favourite watch",
+        "price": 50,
+        "id": 9
+    },
+    {
+        "imgUrl": "http://demoapus-wp.com/goral/wp-content/uploads/2016/11/010-11251-83_ampliada-330x330.jpg",
+        "productName": "Premium Watch Band (Yellow)",
+        "desc": "Premium Watch Bands made only for our smartwatches. It gives premium look to your watch and fully customizeable. You can use any of our bands with your favourite watch",
+        "price": 50,
+        "id": 10
+    }
+]
