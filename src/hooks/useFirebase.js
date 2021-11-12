@@ -13,6 +13,7 @@ const useFirebase = () => {
         setIsloaded(true);
         createUserWithEmailAndPassword(auth, email, pass)
             .then(userData => {
+                alert('Registration Successful');
                 setError('');
                 updateProfile(auth.currentUser, {
                     displayName: userName

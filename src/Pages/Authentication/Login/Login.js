@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import { Lin, useLocation, useHistory, Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import Footer from '../../Shared/Footer/Footer';
+import Navbar from '../../Shared/Navbar/Navbar';
 const Login = () => {
     const { signInWithPassword, isLoaded, Error, user } = useAuth();
     const emailRef = useRef('');
@@ -17,7 +19,8 @@ const Login = () => {
     }
     return (
         <div className="bg-grey-lighter min-h-screen flex flex-col">
-            <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
+            <Navbar />
+            <div className="container py-28 max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
                 <div className="bg-white px-6 py-8 rounded shadow-lg text-black w-full">
                     <h1 className="mb-2 text-3xl font-bold text-center">Login</h1>
                     <p className="text-center mb-8"><small>Please Login by providing the details below</small></p>
@@ -53,6 +56,7 @@ const Login = () => {
                     </Link>.
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

@@ -1,8 +1,10 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import Footer from '../../Shared/Footer/Footer';
+import Navbar from '../../Shared/Navbar/Navbar';
 const Registration = () => {
-    const { signUpWithPassword, signInWithPassword, logOut, isLoaded, Error, setError, user } = useAuth();
+    const { signUpWithPassword, signInWithPassword, logOut, isLoaded, error, setError, user } = useAuth();
     const userNameRef = useRef('');
     const emailRef = useRef('');
     const passRef = useRef('');
@@ -14,8 +16,6 @@ const Registration = () => {
         const confirmPass = confirmPassRef.current.value;
         if (pass == confirmPass) {
             signUpWithPassword(userName, email, pass);
-            setError('');
-            alert('Registration Successful');
             userNameRef.current.value = "";
             emailRef.current.value = "";
             passRef.current.value = "";
@@ -29,7 +29,8 @@ const Registration = () => {
     }
     return (
         <div className="bg-grey-lighter min-h-screen flex flex-col">
-            <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
+            <Navbar />
+            <div className="py-28 container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
                 <div className="bg-white px-6 py-8 rounded shadow-lg text-black w-full">
                     <h1 className="mb-2 text-3xl font-bold text-center">Sign up</h1>
                     <p className="text-center mb-8"><small>Please register by providing the details below</small></p>
@@ -68,6 +69,8 @@ const Registration = () => {
 
                     </form>
 
+                    <h2 className="mt-3 text-center text-red-400">{error}</h2>
+
                     <div className="text-center text-sm text-grey-dark mt-4">
                         By signing up, you agree to the {/* */}
                         <a className="no-underline border-b border-grey-dark text-grey-dark" href="#">
@@ -86,6 +89,7 @@ const Registration = () => {
                     </Link>.
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };
