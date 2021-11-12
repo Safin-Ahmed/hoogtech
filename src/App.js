@@ -7,10 +7,14 @@ import Purchase from './Pages/Purchase/Purchase/Purchase';
 import NotFound from './Pages/NotFound/NotFound';
 import Navbar from './Pages/Shared/Navbar/Navbar';
 import Footer from './Pages/Shared/Footer/Footer';
+import AuthProvider from './contexts/AuthProvider/AuthProvider';
+import Registration from './Pages/Authentication/Registration/Registration';
+import Login from './Pages/Authentication/Login/Login';
+import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
-    <div>
+    <AuthProvider>
       <Router>
         <Switch>
           <Route exact path="/">
@@ -22,15 +26,21 @@ function App() {
           <Route path="/explore">
             <Explore></Explore>
           </Route>
-          <Route path="/purchase">
-            <Purchase></Purchase>
+          <Route path="/register">
+            <Registration></Registration>
           </Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+          <PrivateRoute path="/purchase/:id">
+            <Purchase></Purchase>
+          </PrivateRoute>
           <Route path="*">
             <NotFound></NotFound>
           </Route>
         </Switch>
       </Router>
-    </div>
+    </AuthProvider>
   );
 }
 

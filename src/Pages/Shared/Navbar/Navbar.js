@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import logo from '../../../images/logo.png';
 import { BiCart, BiMenu, BiSearch, BiUser } from 'react-icons/bi';
 import './Navbar.css';
+import useAuth from '../../../hooks/useAuth';
 const Navbar = () => {
     const [toggle, setToggle] = useState(false);
+    const { user, isLoaded, logOut } = useAuth();
     const handleToggle = () => {
         setToggle(!toggle);
     }
@@ -23,13 +25,15 @@ const Navbar = () => {
                         <Link to="/about"><button>About Us</button></Link>
                         <Link to="/contact"><button>Contact Us</button></Link>
                         <Link to="/dashboard"><button>Track My Order</button></Link>
-                        <Link to="/dashboard"><button>Dashboard</button></Link>
+                        {user.email && <Link to="/dashboard"><button>Dashboard</button></Link>}
                     </div>
                     {/* Navbar Secondary Menu goes here */}
                     <div className="hidden md:block navbar-user w-1/6">
-                        <Link to="/login"><button><BiUser></BiUser></button></Link>
-                        <Link to="/explore"><button><BiSearch></BiSearch></button></Link>
-                        <Link to="/cart"><button><BiCart></BiCart></button></Link>
+                        <div className="flex flex-wrap items-center">
+                            {user.email && <h2>{user.displayName}</h2>}
+                            {user.email ? <button onClick={logOut} className="logout primary-bg text-white">Logout</button> : <Link to="/login"><button className="logout primary-bg text-white">Login</button></Link>}
+                        </div>
+
                     </div>
                     {/* Mobile Button Goes Here */}
                     <div className="md:hidden flex items-center">
