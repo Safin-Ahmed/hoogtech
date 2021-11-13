@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react/cjs/react.development';
 import useAuth from '../../../../hooks/useAuth';
 import MyOrder from '../../MyOrder/MyOrder';
+import ManageOrder from '../ManageOrder/ManageOrder';
 
 const ManageAllOrders = () => {
     const { token } = useAuth();
@@ -48,7 +49,9 @@ const ManageAllOrders = () => {
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
-
+                                {
+                                    manageOrders.map(order => <ManageOrder token={token} order={order} setManageOrders={setManageOrders}></ManageOrder>)
+                                }
                             </tbody>
                         </table>
                     </div>

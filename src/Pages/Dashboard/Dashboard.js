@@ -79,7 +79,8 @@ const Dashboard = () => {
             <div class="flex-1 p-10 text-2xl font-bold">
                 <Switch>
                     <Route exact path={path}>
-                        <MyOrders></MyOrders>
+                        {!admin && <MyOrders></MyOrders>}
+                        {admin && <ManageAllOrders />}
                     </Route>
                     <Route path={`${path}/myOrders`}>
                         <MyOrders></MyOrders>

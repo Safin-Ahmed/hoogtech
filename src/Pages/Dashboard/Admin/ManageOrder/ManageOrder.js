@@ -1,13 +1,13 @@
 import React from 'react';
-import useAuth from '../../../hooks/useAuth';
+import useAuth from '../../../../hooks/useAuth';
 
-const MyOrder = ({ order, orders, setOrders }) => {
+const ManageOrder = ({ order, setManageOrders, token }) => {
     const { cus_name, cus_email, price, productName, status, _id } = order;
     console.log(_id);
     const { user } = useAuth();
-    const handleCancel = () => {
-        const confirmation = window.confirm('Are you sure you want to cancel the order?');
-        const url = `http://localhost:5000/orders?id=${_id}&&status="cancelled"`;
+    const handleShipped = () => {
+        const confirmation = window.confirm('Are you sure you want to mark this order shipped?');
+        const url = `http://localhost:5000/orders?id=${_id}&&status="shipped"`;
         if (confirmation) {
             fetch(url, {
                 method: 'PUT',
@@ -18,10 +18,14 @@ const MyOrder = ({ order, orders, setOrders }) => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.modifiedCount) {
-                        alert('Order Has Been Cancelled')
-                        fetch(`http://localhost:5000/orders?email=${user.email}`)
+                        alert('Status for the order is updated')
+                        fetch(`http://localhost:5000/allOrders`, {
+                            headers: {
+                                'authorization': `Bearer ${token}`
+                            }
+                        })
                             .then(res => res.json())
-                            .then(data => setOrders(data))
+                            .then(data => setManageOrders(data))
                     }
                 })
         }
@@ -41,9 +45,13 @@ const MyOrder = ({ order, orders, setOrders }) => {
                 .then(data => {
                     if (data.deletedCount) {
                         alert('The order has been deleted')
-                        fetch(`http://localhost:5000/orders?email=${user.email}`)
+                        fetch(`http://localhost:5000/allOrders`, {
+                            headers: {
+                                'authorization': `Bearer ${token}`
+                            }
+                        })
                             .then(res => res.json())
-                            .then(data => setOrders(data))
+                            .then(data => setManageOrders(data))
                     }
 
                 })
@@ -76,7 +84,7 @@ const MyOrder = ({ order, orders, setOrders }) => {
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
                 <div className="flex">
-                    <button onClick={handleCancel} className="mr-3 px-3 text-sm font-semibold py-1 bg-yellow-100 text-yellow-800">Cancel</button>
+                    <button onClick={handleShipped} className="mr-3 px-3 text-sm font-semibold py-1 bg-yellow-100 text-yellow-800">Mark as Shipped</button>
                     <button onClick={handleDelete} className="px-3 text-sm font-semibold py-1 bg-red-100 text-red-800">Delete</button>
                 </div>
             </td>
@@ -84,4 +92,4 @@ const MyOrder = ({ order, orders, setOrders }) => {
     );
 };
 
-export default MyOrder;
+export default ManageOrder;
