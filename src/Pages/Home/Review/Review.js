@@ -7,7 +7,7 @@ const SVGIcon = (props) =>
 const Review = ({ review }) => {
     const { userName, rating, description } = review;
     return (
-        <div className="rounded-xl product-card p-10 shadow-xl text-center  transition duration-150 ease-in-out transform hover:-translate-y-8 bg-white">
+        <div className="rounded-xl mb-3 md:mb-0 product-card p-10 shadow-xl text-center  transition duration-150 ease-in-out transform hover:-translate-y-8 bg-white">
             <h2 className="text-2xl font-bold mt-5 mb-1">{userName}</h2>
             <h5 className="highlight font-bold text-md mb-2">Customer</h5>
             <Rating
