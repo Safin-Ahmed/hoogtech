@@ -5,13 +5,13 @@ const useProducts = () => {
     const [isLoaded, setIsLoaded] = useState(false);
     useEffect(() => {
         setIsLoaded(true);
-        fetch('http://localhost:5000/products')
+        fetch('https://safe-wildwood-94267.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
             .finally(() => {
                 setIsLoaded(false);
             })
     }, [])
-    return { products, isLoaded }
+    return { products, isLoaded, setProducts }
 }
 export default useProducts;

@@ -56,8 +56,7 @@ const useFirebase = () => {
     }
 
     useEffect(() => {
-
-        fetch(`http://localhost:5000/users/${user.email}`)
+        fetch(`https://safe-wildwood-94267.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setAdmin(data.admin);

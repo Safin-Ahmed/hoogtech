@@ -4,10 +4,14 @@ import useAuth from '../../../hooks/useAuth';
 const MyOrder = ({ order, orders, setOrders }) => {
     const { cus_name, cus_email, price, productName, status, _id } = order;
     console.log(_id);
-    const { user } = useAuth();
+    const { user, isLoaded, token } = useAuth();
+    console.log(user.email);
     const handleCancel = () => {
+        if (isLoaded) {
+            return 'Loading';
+        }
         const confirmation = window.confirm('Are you sure you want to cancel the order?');
-        const url = `http://localhost:5000/orders?id=${_id}&&status="cancelled"`;
+        const url = `https://safe-wildwood-94267.herokuapp.com/orders?id=${_id}&&status="cancelled"`;
         if (confirmation) {
             fetch(url, {
                 method: 'PUT',
@@ -19,7 +23,11 @@ const MyOrder = ({ order, orders, setOrders }) => {
                 .then(data => {
                     if (data.modifiedCount) {
                         alert('Order Has Been Cancelled')
-                        fetch(`http://localhost:5000/orders?email=${user.email}`)
+                        fetch(`https://safe-wildwood-94267.herokuapp.com/orders?email=${user.email}`, {
+                            headers: {
+                                'authorization': `Bearer ${token}`
+                            }
+                        })
                             .then(res => res.json())
                             .then(data => setOrders(data))
                     }
@@ -29,7 +37,7 @@ const MyOrder = ({ order, orders, setOrders }) => {
     }
     const handleDelete = () => {
         const confirmation = window.confirm('Are you sure you want to delete the order?');
-        const url = `http://localhost:5000/orders?id=${_id}`;
+        const url = `https://safe-wildwood-94267.herokuapp.com/orders?id=${_id}`;
         if (confirmation) {
             fetch(url, {
                 method: 'DELETE',
@@ -41,7 +49,11 @@ const MyOrder = ({ order, orders, setOrders }) => {
                 .then(data => {
                     if (data.deletedCount) {
                         alert('The order has been deleted')
-                        fetch(`http://localhost:5000/orders?email=${user.email}`)
+                        fetch(`https://safe-wildwood-94267.herokuapp.com/orders?email=${user.email}`, {
+                            headers: {
+                                'authorization': `Bearer ${token}`
+                            }
+                        })
                             .then(res => res.json())
                             .then(data => setOrders(data))
                     }

@@ -7,7 +7,7 @@ const ManageOrder = ({ order, setManageOrders, token }) => {
     const { user } = useAuth();
     const handleShipped = () => {
         const confirmation = window.confirm('Are you sure you want to mark this order shipped?');
-        const url = `http://localhost:5000/orders?id=${_id}&&status="shipped"`;
+        const url = `https://safe-wildwood-94267.herokuapp.com/orders?id=${_id}&&status="shipped"`;
         if (confirmation) {
             fetch(url, {
                 method: 'PUT',
@@ -19,7 +19,7 @@ const ManageOrder = ({ order, setManageOrders, token }) => {
                 .then(data => {
                     if (data.modifiedCount) {
                         alert('Status for the order is updated')
-                        fetch(`http://localhost:5000/allOrders`, {
+                        fetch(`https://safe-wildwood-94267.herokuapp.com/allOrders`, {
                             headers: {
                                 'authorization': `Bearer ${token}`
                             }
@@ -33,7 +33,7 @@ const ManageOrder = ({ order, setManageOrders, token }) => {
     }
     const handleDelete = () => {
         const confirmation = window.confirm('Are you sure you want to delete the order?');
-        const url = `http://localhost:5000/orders?id=${_id}`;
+        const url = `https://safe-wildwood-94267.herokuapp.com/orders?id=${_id}`;
         if (confirmation) {
             fetch(url, {
                 method: 'DELETE',
@@ -45,7 +45,7 @@ const ManageOrder = ({ order, setManageOrders, token }) => {
                 .then(data => {
                     if (data.deletedCount) {
                         alert('The order has been deleted')
-                        fetch(`http://localhost:5000/allOrders`, {
+                        fetch(`https://safe-wildwood-94267.herokuapp.com/allOrders`, {
                             headers: {
                                 'authorization': `Bearer ${token}`
                             }

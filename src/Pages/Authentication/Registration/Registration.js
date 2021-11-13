@@ -12,7 +12,7 @@ const Registration = () => {
     const saveUser = (name, email) => {
         const user = { name, email };
         user['role'] = 'user';
-        fetch('http://localhost:5000/users', {
+        fetch('https://safe-wildwood-94267.herokuapp.com/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

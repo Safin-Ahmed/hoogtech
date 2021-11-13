@@ -7,7 +7,7 @@ const MyOrders = () => {
     const { user, token } = useAuth();
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user.email}`, {
+        fetch(`https://safe-wildwood-94267.herokuapp.com/orders?email=${user.email}`, {
             headers: {
                 'authorization': `Bearer ${token}`
             }

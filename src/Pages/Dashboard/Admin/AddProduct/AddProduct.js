@@ -18,7 +18,7 @@ const AddProduct = () => {
             desc: productDesc,
             price
         }
-        fetch('http://localhost:5000/products', {
+        fetch('https://safe-wildwood-94267.herokuapp.com/products', {
             method: 'POST',
             headers: {
                 'authorization': `Bearer ${token}`,

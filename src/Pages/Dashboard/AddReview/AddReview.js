@@ -14,7 +14,7 @@ const AddReview = () => {
 
         const review = { userName, rating, description };
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://safe-wildwood-94267.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

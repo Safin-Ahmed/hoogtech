@@ -8,7 +8,7 @@ const ManageAllOrders = () => {
     const { token } = useAuth();
     const [manageOrders, setManageOrders] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/allOrders`, {
+        fetch(`https://safe-wildwood-94267.herokuapp.com/allOrders`, {
             headers: {
                 'authorization': `Bearer ${token}`
             }

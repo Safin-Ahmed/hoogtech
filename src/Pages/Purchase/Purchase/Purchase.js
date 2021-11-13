@@ -21,7 +21,7 @@ const Purchase = () => {
         order["cus_name"] = displayName;
         order["cus_email"] = email;
         order["status"] = "pending";
-        fetch('http://localhost:5000/orders', {
+        fetch('https://safe-wildwood-94267.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
