@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import useAuth from '../../hooks/useAuth';
 import logo from '../../images/logo.png';
+import AddReview from './AddReview/AddReview';
 import './Dashboard.css';
 import MyOrders from './MyOrders/MyOrders';
 import Pay from './Pay/Pay';
@@ -41,7 +42,7 @@ const Dashboard = () => {
                     <Link to={`${url}/myOrders`} class="sidebar-nav block py-2.5 px-4 rounded transition duration-200 hover:text-white">
                         My Orders
                     </Link>
-                    <Link to={`${url}/review`} class="sidebar-nav block py-2.5 px-4 rounded transition duration-200 hover:text-white">
+                    <Link to={`${url}/addReview`} class="sidebar-nav block py-2.5 px-4 rounded transition duration-200 hover:text-white">
                         Add Review
                     </Link>
                     <button onClick={logOut} class="sidebar-nav w-full text-left block py-2.5 px-4 rounded transition duration-200 hover:text-white">
@@ -61,7 +62,9 @@ const Dashboard = () => {
                     <Route path={`${path}/pay`}>
                         <Pay></Pay>
                     </Route>
-
+                    <Route path={`${path}/addReview`}>
+                        <AddReview></AddReview>
+                    </Route>
                 </Switch>
             </div>
 

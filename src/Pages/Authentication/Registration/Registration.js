@@ -9,6 +9,16 @@ const Registration = () => {
     const emailRef = useRef('');
     const passRef = useRef('');
     const confirmPassRef = useRef('');
+    const saveUser = (name, email) => {
+        const user = { name, email };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+    }
     const handleSubmit = e => {
         const userName = userNameRef.current.value;
         const email = emailRef.current.value;
@@ -16,6 +26,7 @@ const Registration = () => {
         const confirmPass = confirmPassRef.current.value;
         if (pass == confirmPass) {
             signUpWithPassword(userName, email, pass);
+            saveUser(userName, email);
             userNameRef.current.value = "";
             emailRef.current.value = "";
             passRef.current.value = "";

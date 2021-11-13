@@ -37,7 +37,7 @@ const useFirebase = () => {
     // Sign in with Password 
     const signInWithPassword = (email, pass, location, history) => {
         setIsloaded(true);
-        const redirectUrl = location.state?.from || '/';
+        const redirectUrl = location.state?.from || '/dashboard';
         signInWithEmailAndPassword(auth, email, pass)
             .then(userData => {
                 setError('');
