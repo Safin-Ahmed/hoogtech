@@ -4,10 +4,14 @@ import useAuth from '../../../hooks/useAuth';
 import MyOrder from '../MyOrder/MyOrder';
 
 const MyOrders = () => {
-    const { user } = useAuth();
+    const { user, token } = useAuth();
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user.email}`)
+        fetch(`http://localhost:5000/orders?email=${user.email}`, {
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        })
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [user])

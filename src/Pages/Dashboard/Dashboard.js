@@ -10,12 +10,17 @@ import {
 import useAuth from '../../hooks/useAuth';
 import logo from '../../images/logo.png';
 import AddReview from './AddReview/AddReview';
+import AddProduct from './Admin/AddProduct/AddProduct';
+import AdminRoute from './Admin/AdminRoute/AdminRoute';
+import ManageAllOrders from './Admin/ManageAllOrders/ManageAllOrders';
+import ManageProducts from './Admin/ManageProducts/ManageProducts';
 import './Dashboard.css';
+import MakeAdmin from './MakeAdmin/MakeAdmin';
 import MyOrders from './MyOrders/MyOrders';
 import Pay from './Pay/Pay';
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
-    const { logOut } = useAuth();
+    const { logOut, admin } = useAuth();
     return (
         <div class="relative min-h-screen md:flex">
 
@@ -36,15 +41,35 @@ const Dashboard = () => {
                 </Link>
 
                 <nav>
-                    <Link to={`${url}/pay`} class="sidebar-nav block py-2.5 px-4 rounded transition duration-200 hover:text-white">
-                        Pay
-                    </Link>
-                    <Link to={`${url}/myOrders`} class="sidebar-nav block py-2.5 px-4 rounded transition duration-200 hover:text-white">
-                        My Orders
-                    </Link>
-                    <Link to={`${url}/addReview`} class="sidebar-nav block py-2.5 px-4 rounded transition duration-200 hover:text-white">
-                        Add Review
-                    </Link>
+                    {!admin && <div>
+                        <Link to={`${url}/pay`} class="sidebar-nav block py-2.5 px-4 rounded transition duration-200 hover:text-white">
+                            Pay
+                        </Link>
+                        <Link to={`${url}/myOrders`} class="sidebar-nav block py-2.5 px-4 rounded transition duration-200 hover:text-white">
+                            My Orders
+                        </Link>
+                        <Link to={`${url}/addReview`} class="sidebar-nav block py-2.5 px-4 rounded transition duration-200 hover:text-white">
+                            Add Review
+                        </Link>
+                    </div>
+                    }
+
+                    {admin && <div>
+                        <Link to={`${url}/manageOrders`} class="sidebar-nav block py-2.5 px-4 rounded transition duration-200 hover:text-white">
+                            Manage All Orders
+                        </Link>
+                        <Link to={`${url}/addProduct`} class="sidebar-nav block py-2.5 px-4 rounded transition duration-200 hover:text-white">
+                            Add a Product
+                        </Link>
+                        <Link to={`${url}/makeAdmin`} class="sidebar-nav block py-2.5 px-4 rounded transition duration-200 hover:text-white">
+                            Make Admin
+                        </Link>
+                        <Link to={`${url}/manageProduct`} class="sidebar-nav block py-2.5 px-4 rounded transition duration-200 hover:text-white">
+                            Manage Products
+                        </Link>
+
+                    </div>}
+
                     <button onClick={logOut} class="sidebar-nav w-full text-left block py-2.5 px-4 rounded transition duration-200 hover:text-white">
                         Logout
                     </button>
@@ -65,6 +90,20 @@ const Dashboard = () => {
                     <Route path={`${path}/addReview`}>
                         <AddReview></AddReview>
                     </Route>
+                    <AdminRoute path={`${path}/manageOrders`}>
+                        <ManageAllOrders></ManageAllOrders>
+                    </AdminRoute>
+
+                    <AdminRoute path={`${path}/addProduct`}>
+                        <AddProduct></AddProduct>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageProduct`}>
+                        <ManageProducts></ManageProducts>
+                    </AdminRoute>
+
+                    <AdminRoute path={`${path}/makeAdmin`}>
+                        <MakeAdmin></MakeAdmin>
+                    </AdminRoute>
                 </Switch>
             </div>
 

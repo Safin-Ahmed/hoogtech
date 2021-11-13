@@ -1,5 +1,5 @@
 import firebaseInit from "../Pages/Authentication/Firebase/firebase.init";
-import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, onAuthStateChanged, signOut, getIdToken } from "firebase/auth";
 import { useState } from "react/cjs/react.development";
 import { useEffect } from "react";
 firebaseInit();
@@ -7,6 +7,8 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [isLoaded, setIsloaded] = useState(true);
+    const [admin, setAdmin] = useState(false);
+    const [token, setToken] = useState('');
     const auth = getAuth();
     // Registration With Name, Email & Password
     const signUpWithPassword = (userName, email, pass) => {
@@ -53,6 +55,12 @@ const useFirebase = () => {
             })
     }
 
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
     // Sign out 
 
     const logOut = () => {
@@ -70,6 +78,10 @@ const useFirebase = () => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
+                getIdToken(user)
+                    .then(idToken => {
+                        setToken(idToken);
+                    })
             } else {
                 setUser({});
             }
@@ -79,6 +91,8 @@ const useFirebase = () => {
     }, [])
     return {
         user,
+        admin,
+        token,
         isLoaded,
         error,
         setError,
