@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory, useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import useProducts from '../../../hooks/useProducts';
 

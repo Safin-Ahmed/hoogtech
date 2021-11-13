@@ -1,6 +1,6 @@
 import firebaseInit from "../Pages/Authentication/Firebase/firebase.init";
 import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, onAuthStateChanged, signOut, getIdToken } from "firebase/auth";
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import { useEffect } from "react";
 firebaseInit();
 const useFirebase = () => {
