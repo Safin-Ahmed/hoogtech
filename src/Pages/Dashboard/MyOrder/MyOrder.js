@@ -11,7 +11,7 @@ const MyOrder = ({ order, orders, setOrders }) => {
             return 'Loading';
         }
         const confirmation = window.confirm('Are you sure you want to cancel the order?');
-        const url = `https://safe-wildwood-94267.herokuapp.com/orders?id=${_id}&&status="cancelled"`;
+        const url = `https://safe-wildwood-94267.herokuapp.com/orders?id=${_id}&&status=cancelled`;
         if (confirmation) {
             fetch(url, {
                 method: 'PUT',
@@ -29,7 +29,10 @@ const MyOrder = ({ order, orders, setOrders }) => {
                             }
                         })
                             .then(res => res.json())
-                            .then(data => setOrders(data))
+                            .then(data => {
+                                console.log(data.status);
+                                setOrders(data);
+                            })
                     }
                 })
         }

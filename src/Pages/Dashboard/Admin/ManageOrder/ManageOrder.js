@@ -7,7 +7,7 @@ const ManageOrder = ({ order, setManageOrders, token }) => {
     const { user } = useAuth();
     const handleShipped = () => {
         const confirmation = window.confirm('Are you sure you want to mark this order shipped?');
-        const url = `https://safe-wildwood-94267.herokuapp.com/orders?id=${_id}&&status="shipped"`;
+        const url = `https://safe-wildwood-94267.herokuapp.com/orders?id=${_id}&&status=shipped`;
         if (confirmation) {
             fetch(url, {
                 method: 'PUT',

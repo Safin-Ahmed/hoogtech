@@ -14,7 +14,7 @@ const Purchase = () => {
         return <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
         </svg>
     }
-    const product = products.find(pd => pd.id == id);
+    const product = products.find(pd => pd._id == id);
     const { imgUrl, productName, price, desc } = product;
     const handleSubmit = e => {
         const order = { ...orderInfo, productName, price };
@@ -48,8 +48,8 @@ const Purchase = () => {
     }
     return (
         <div className="purchase-page">
-            <div className="container py-10 flex mx-auto items-center">
-                <div className="purchase-form w-1/2">
+            <div className="container py-10 flex flex-col-reverse md:flex-row flex-wrap mx-auto items-center">
+                <div className="purchase-form w-full md:w-1/2">
                     <form onSubmit={handleSubmit} className="max-w-xl m-4 p-10 bg-white rounded shadow-xl">
                         <p className="text-gray-800 font-medium">Customer information</p>
                         <div className="">
@@ -81,7 +81,7 @@ const Purchase = () => {
                         </div>
                     </form>
                 </div>
-                <div className="product-detail w-1/2">
+                <div className="product-detail w-full md:w-1/2">
                     <div class="py-6">
                         <div class="flex max-w-md bg-white shadow-lg rounded-lg overflow-hidden">
                             <div class="w-1/3 bg-cover" style={{ backgroundImage: `url(${imgUrl})` }}>

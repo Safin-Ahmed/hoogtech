@@ -7,7 +7,7 @@ const AddReview = () => {
     const ratingRef = useRef();
     const descRef = useRef();
 
-    const handleSubmit = () => {
+    const handleSubmit = e => {
         const userName = userNameRef.current.value;
         const rating = ratingRef.current.value;
         const description = descRef.current.value;
@@ -27,7 +27,7 @@ const AddReview = () => {
                     alert('Review Added Successfully');
                 }
             })
-
+        e.preventDefault();
     }
     return (
         <div className="bg-grey-lighter min-h-screen flex flex-col">

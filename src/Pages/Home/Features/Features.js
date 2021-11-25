@@ -6,7 +6,7 @@ import icon4 from '../../../images/icons/secure-payment 1 (Traced).png';
 const Features = () => {
     return (
         <div className="feature-section my-20">
-            <div className="container gap-x-8 flex flex-wrap mx-auto features">
+            <div className="container gap-x-8 flex flex-wrap md:flex-nowrap mx-auto features">
                 <div className="single-feature pt-20 pb-14 px-20 w-full md:w-1/4 shadow-md rounded-lg">
                     <img style={{ width: '115px', height: 'auto', margin: 'auto' }} src={icon1} alt="" />
                     <h2 className="text-center text-lg font-bold mt-5 mb-2">DELIVERY IN EUROPE</h2>
